@@ -47,7 +47,7 @@ class GameViewController: UIViewController {
         
         let randomX = arc4random_uniform(UInt32(view.frame.width/4*3))
         
-        return CGRect(x: CGFloat(randomX), y: 0 , width: view.frame.width/4, height: 40)
+        return CGRect(x: CGFloat(randomX), y: -50 , width: view.frame.width/4, height: 40)
         
     }
     
@@ -63,6 +63,7 @@ class GameViewController: UIViewController {
         
         view.addSubview(word)
         word.frame = generateRandomFrame(word)
+        self.view.sendSubview(toBack: word)
         
         words.append(word)
         
@@ -71,7 +72,6 @@ class GameViewController: UIViewController {
     }
     
     private func animate(word : UILabel) {
-        //should make duration decrease at time goes on
         UIView.animate(withDuration: 15) {
             word.frame = CGRect(x: word.frame.minX, y: self.view.frame.height, width: word.frame.width, height: word.frame.height)
         }
@@ -111,23 +111,39 @@ class GameViewController: UIViewController {
 
     }
     
-    let button : UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = .red
-        btn.addTarget(self, action: #selector(removeLetter), for: UIControlEvents.touchUpInside)
-        return btn
+    let buttonsCollectionView : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return view
     }()
     
     private func setupView() {
         
         view.backgroundColor = .white
         
-        view.addSubview(button)
+        view.addSubview(buttonsCollectionView)
         
-        button.frame = CGRect(x: 0, y: view.frame.height-55, width: view.frame.width, height: 55)
+        buttonsCollectionView.delegate = self
+        buttonsCollectionView.dataSource = self
+        buttonsCollectionView.register(NumberButtonCollectionViewCell.self, forCellWithReuseIdentifier: "NumberButtonCollectionViewCell")
+        
+        buttonsCollectionView.frame = CGRect(x: 0 , y: view.frame.height/10*6, width: view.frame.width, height: view.frame.height/10*4)
+        
+        
+        
     }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
