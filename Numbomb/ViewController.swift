@@ -45,15 +45,7 @@ class GameViewController: UIViewController {
     
     private func generateRandomFrame(_ label : UILabel) -> CGRect {
         
-        var stringWidth : CGFloat = 0
-        
-        if let width_ = label.text?.stringWidth {
-            stringWidth = width_
-        } else {
-            stringWidth = view.frame.width/4
-        }
-        
-        let randomX = arc4random_uniform(UInt32(view.frame.width - stringWidth))
+        let randomX = arc4random_uniform(UInt32(view.frame.width/4*3))
         
         return CGRect(x: CGFloat(randomX), y: 0 , width: view.frame.width/4, height: 40)
         
@@ -108,7 +100,7 @@ class GameViewController: UIViewController {
         
         guard var lastWordText = lastWord!.text else {return}
         
-        if  lastWordText.count == 0 {
+        if  lastWordText.count == 1 {
             words.remove(at: 0)
             lastWord!.removeFromSuperview()
         } else {
