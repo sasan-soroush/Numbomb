@@ -53,7 +53,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
             
             guard let lastWord = self.words.first else {return}
 
-            if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY {
+            if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY+40 {
 
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.words.remove(at: 0)
