@@ -15,9 +15,13 @@
 		E28D6A4B215D6BD600DA4BCC /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A4A215D6BD600DA4BCC /* Extentions.swift */; };
 		E28D6A4F215D766B00DA4BCC /* NumberButtonsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A4E215D766B00DA4BCC /* NumberButtonsCollectionView.swift */; };
 		E28D6A51215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A50215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift */; };
+		F4061F53188FE6ACE0E0C7DA /* Pods_Numbomb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778D4FBA268CB9593E966406 /* Pods_Numbomb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		593458831A62B37919EFFFB2 /* Pods-Numbomb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numbomb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numbomb/Pods-Numbomb.debug.xcconfig"; sourceTree = "<group>"; };
+		6739F0F7ED26C9FA2998D1AE /* Pods-Numbomb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numbomb.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numbomb/Pods-Numbomb.release.xcconfig"; sourceTree = "<group>"; };
+		778D4FBA268CB9593E966406 /* Pods_Numbomb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numbomb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28D6A30215D583B00DA4BCC /* Numbomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numbomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28D6A33215D583B00DA4BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E28D6A35215D583B00DA4BCC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4061F53188FE6ACE0E0C7DA /* Pods_Numbomb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		894D691CE757D820B4A230C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				593458831A62B37919EFFFB2 /* Pods-Numbomb.debug.xcconfig */,
+				6739F0F7ED26C9FA2998D1AE /* Pods-Numbomb.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E28D6A27215D583A00DA4BCC = {
 			isa = PBXGroup;
 			children = (
 				E28D6A32215D583B00DA4BCC /* Numbomb */,
 				E28D6A31215D583B00DA4BCC /* Products */,
+				894D691CE757D820B4A230C2 /* Pods */,
+				F5406D41B4CFBF984B53D52D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +89,14 @@
 			path = Numbomb;
 			sourceTree = "<group>";
 		};
+		F5406D41B4CFBF984B53D52D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				778D4FBA268CB9593E966406 /* Pods_Numbomb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E28D6A45215D583C00DA4BCC /* Build configuration list for PBXNativeTarget "Numbomb" */;
 			buildPhases = (
+				A229F295BB7B1CFA2A011B97 /* [CP] Check Pods Manifest.lock */,
 				E28D6A2C215D583A00DA4BCC /* Sources */,
 				E28D6A2D215D583A00DA4BCC /* Frameworks */,
 				E28D6A2E215D583A00DA4BCC /* Resources */,
+				68EB00E36443287FEB648E49 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +163,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68EB00E36443287FEB648E49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Numbomb/Pods-Numbomb-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Numbomb/Pods-Numbomb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A229F295BB7B1CFA2A011B97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Numbomb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E28D6A2C215D583A00DA4BCC /* Sources */ = {
@@ -282,6 +347,7 @@
 		};
 		E28D6A46215D583C00DA4BCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593458831A62B37919EFFFB2 /* Pods-Numbomb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +366,7 @@
 		};
 		E28D6A47215D583C00DA4BCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6739F0F7ED26C9FA2998D1AE /* Pods-Numbomb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

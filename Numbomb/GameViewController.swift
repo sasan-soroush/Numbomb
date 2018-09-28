@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import LTMorphingLabel
+import AudioToolbox
 
-class GameViewController: UIViewController{
+class GameViewController: UIViewController , LTMorphingLabelDelegate{
 
     weak var timer: Timer?
     weak var updateTimer : Timer?
     weak var durationTimer : Timer?
+    weak var numberRangeTime : Timer?
     
-    var words : [UILabel] = []
-    var lastWord : UILabel?
+    var words : [LTMorphingLabel] = []
+    var lastWord : LTMorphingLabel?
     var lastWordHeight : CGFloat?
-    var duration : Double = 5.0
+    var duration : Double = 10.0
+    var rangeOfRandomNumber = 901
+    var startNumberForRange = 100
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,7 @@ class GameViewController: UIViewController{
         startTimer()
         setupView()
         setDuration()
+        setNumberRange()
         update()
         
     }
@@ -47,8 +54,8 @@ class GameViewController: UIViewController{
             guard let lastWord = self.words.first else {return}
 
             if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY {
-                
-                self.words.first?.textColor = .red
+
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.words.remove(at: 0)
                 lastWord.removeFromSuperview()
                 
@@ -60,12 +67,23 @@ class GameViewController: UIViewController{
     
     private func setDuration () {
         durationTimer?.invalidate()
-        durationTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (_) in
+        durationTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true, block: { (_) in
         
             print("Increasing the speed")
-            let x = self.duration * 0.8
+            let x = self.duration * 0.9
             let y = Double(round(x * 100)/100)
             self.duration = y
+            //TODO:- set minimum speed
+            
+        })
+    }
+    
+    private func setNumberRange() {
+        numberRangeTime?.invalidate()
+        numberRangeTime = Timer.scheduledTimer(withTimeInterval: 20, repeats: true, block: { (_) in
+            
+            self.rangeOfRandomNumber *= 10
+            self.startNumberForRange *= 10
             
         })
     }
@@ -81,19 +99,20 @@ class GameViewController: UIViewController{
     
     private func generateRandomFrame(_ label : UILabel) -> CGRect {
         
-        let randomX = arc4random_uniform(UInt32(view.frame.width/4*3))
+        let randomX = arc4random_uniform(UInt32(view.frame.width/4*2))
         
-        return CGRect(x: CGFloat(randomX), y: -50 , width: view.frame.width/4, height: 40)
+        return CGRect(x: CGFloat(randomX), y: -50 , width: view.frame.width/2, height: 100)
         
     }
     
     private func generateWord() {
         
-        let word : UILabel = {
-            let label = UILabel()
+        let word : LTMorphingLabel = {
+            let label = LTMorphingLabel()
             label.text = getRandomWord()
-            label.textColor = .black
+            label.textColor = UIColor.init(rgb: 0x14F208)
             label.textAlignment = .center
+            label.morphingEffect = LTMorphingEffect.fall
             label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.heavy)
             return label
         }()
@@ -109,8 +128,9 @@ class GameViewController: UIViewController{
     }
     
     private func getRandomWord() -> String{
-    
-        let randomNumber = arc4random_uniform(901) + 100
+        
+        let randomNumber = arc4random_uniform(UInt32(rangeOfRandomNumber)) + UInt32(startNumberForRange)
+        print(randomNumber)
         return String(randomNumber)
         
     }
@@ -146,8 +166,8 @@ class GameViewController: UIViewController{
             if String((words.first?.text?.first)!) == character {
                 if  lastWordText.count == 1 {
                     
-                    words.remove(at: 0)
-                    lastWord!.removeFromSuperview()
+                    lastWordText.remove(at: lastWordText.startIndex)
+                    deleteionAnimation()
                     
                 } else {
                     
@@ -155,7 +175,6 @@ class GameViewController: UIViewController{
                     
                 }
             }
-            
             
             lastWord!.text = lastWordText
         }
@@ -165,13 +184,34 @@ class GameViewController: UIViewController{
     let buttonsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         return view
     }()
     
+    private func deleteionAnimation() {
+        
+        let lastWord = words.first
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            lastWord!.alpha = 0
+            
+        }) { (_) in
+            
+            if self.words.count > 0 {
+                self.words.remove(at: 0)
+                lastWord!.removeFromSuperview()
+            }
+            
+            
+            
+        }
+        
+    }
+    
     private func setupView() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         view.addSubview(buttonsCollectionView)
         
