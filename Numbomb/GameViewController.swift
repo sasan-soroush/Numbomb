@@ -8,11 +8,13 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController{
 
     weak var timer: Timer?
+    weak var updateTimer : Timer?
     var words : [UILabel] = []
     var lastWord : UILabel?
+    var lastWordHeight : CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,18 +22,35 @@ class GameViewController: UIViewController {
         
         startTimer()
         setupView()
+        update()
         
     }
     
     private func startTimer() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
             
             DispatchQueue.main.async {
                 self.generateWord()
             }
             
         }
+    }
+    
+    private func update() {
+        updateTimer?.invalidate()
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true, block: { (_) in
+            
+            guard let lastWord = self.words.first else {return}
+
+            if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY {
+                
+                self.words.remove(at: 0)
+                lastWord.removeFromSuperview()
+                
+            }
+            
+        })
     }
     
     private func stopTimer() {
@@ -55,9 +74,10 @@ class GameViewController: UIViewController {
         
         let word : UILabel = {
             let label = UILabel()
-            label.text = "TEST"
-            label.textColor = .red
+            label.text = getRandomWord()
+            label.textColor = .black
             label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.heavy)
             return label
         }()
         
@@ -71,10 +91,19 @@ class GameViewController: UIViewController {
         
     }
     
+    private func getRandomWord() -> String{
+    
+        let randomNumber = arc4random_uniform(901) + 100
+        return String(randomNumber)
+        
+    }
+    
     private func animate(word : UILabel) {
-        UIView.animate(withDuration: 15) {
-            word.frame = CGRect(x: word.frame.minX, y: self.view.frame.height, width: word.frame.width, height: word.frame.height)
-        }
+        
+        UIView.animate(withDuration: 15, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+             word.frame = CGRect(x: word.frame.minX, y: self.view.frame.height, width: word.frame.width, height: word.frame.height)
+        }, completion: nil)
+
     }
     
     private func chooseLastWord() {
@@ -87,7 +116,7 @@ class GameViewController: UIViewController {
         
     }
     
-    @objc private func removeLetter() {
+    @objc func removeLetter() {
         
         chooseLastWord()
         
@@ -128,7 +157,6 @@ class GameViewController: UIViewController {
         buttonsCollectionView.register(NumberButtonCollectionViewCell.self, forCellWithReuseIdentifier: "NumberButtonCollectionViewCell")
         
         buttonsCollectionView.frame = CGRect(x: 0 , y: view.frame.height/10*6, width: view.frame.width, height: view.frame.height/10*4)
-        
         
         
     }

@@ -32,9 +32,9 @@ extension GameViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.item {
         case 9:
-            return CGSize(width: view.frame.width, height: view.frame.height/10)
+            return CGSize(width: view!.frame.width, height: view!.frame.height/10)
         default:
-            return CGSize(width: view.frame.width/3, height: view.frame.height/10)
+            return CGSize(width: view!.frame.width/3, height: view!.frame.height/10)
         }
     }
     
@@ -47,6 +47,7 @@ extension GameViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         switch indexPath.item {
         case 9:
             print(0)
@@ -55,7 +56,6 @@ extension GameViewController : UICollectionViewDelegate , UICollectionViewDataSo
         }
         
     }
-    
 }
 
 
