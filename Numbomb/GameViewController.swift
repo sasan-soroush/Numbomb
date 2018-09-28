@@ -12,16 +12,19 @@ class GameViewController: UIViewController{
 
     weak var timer: Timer?
     weak var updateTimer : Timer?
+    weak var durationTimer : Timer?
+    
     var words : [UILabel] = []
     var lastWord : UILabel?
     var lastWordHeight : CGFloat?
+    var duration : Double = 5.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         startTimer()
         setupView()
+        setDuration()
         update()
         
     }
@@ -51,16 +54,20 @@ class GameViewController: UIViewController{
                 
             }
             
+            
         })
     }
     
-    private func remove()
+    private func setDuration () {
+        durationTimer?.invalidate()
+        durationTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (_) in
         
-    {
-//        self.hintLabel.layer.removeAllAnimations()
-        self.view.layer.removeAllAnimations()
-        self.view.layoutIfNeeded()
-        
+            print("Increasing the speed")
+            let x = self.duration * 0.8
+            let y = Double(round(x * 100)/100)
+            self.duration = y
+            
+        })
     }
     
     private func stopTimer() {
@@ -97,7 +104,7 @@ class GameViewController: UIViewController{
         
         words.append(word)
         
-        animate(word: word)
+        animate(word: word, duration: duration)
         
     }
     
@@ -108,9 +115,9 @@ class GameViewController: UIViewController{
         
     }
     
-    private func animate(word : UILabel) {
+    private func animate(word : UILabel , duration : Double) {
         
-        UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
              word.frame = CGRect(x: word.frame.minX, y: self.view.frame.height, width: word.frame.width, height: word.frame.height)
         }, completion: nil)
 
