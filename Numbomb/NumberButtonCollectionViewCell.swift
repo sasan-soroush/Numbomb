@@ -30,8 +30,8 @@ class NumberButtonCollectionViewCell : UICollectionViewCell {
     private func setupView() {
        
         backgroundColor = UIColor.lightGray
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 2
         
         addSubview(number)
         

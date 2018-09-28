@@ -45,12 +45,22 @@ class GameViewController: UIViewController{
 
             if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY {
                 
+                self.words.first?.textColor = .red
                 self.words.remove(at: 0)
                 lastWord.removeFromSuperview()
                 
             }
             
         })
+    }
+    
+    private func remove()
+        
+    {
+//        self.hintLabel.layer.removeAllAnimations()
+        self.view.layer.removeAllAnimations()
+        self.view.layoutIfNeeded()
+        
     }
     
     private func stopTimer() {
@@ -100,7 +110,7 @@ class GameViewController: UIViewController{
     
     private func animate(word : UILabel) {
         
-        UIView.animate(withDuration: 15, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+        UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
              word.frame = CGRect(x: word.frame.minX, y: self.view.frame.height, width: word.frame.width, height: word.frame.height)
         }, completion: nil)
 
@@ -116,33 +126,39 @@ class GameViewController: UIViewController{
         
     }
     
-    @objc func removeLetter() {
+    func removeLetter(character : String) {
         
-        chooseLastWord()
-        
-        for word in words {
-            if word == lastWord {
-                word.textColor = .blue
+        if words.count > 0 {
+           
+            chooseLastWord()
+            
+            words.first?.textColor = .green
+            
+            guard var lastWordText = words.first?.text else {return}
+            
+            if String((words.first?.text?.first)!) == character {
+                if  lastWordText.count == 1 {
+                    
+                    words.remove(at: 0)
+                    lastWord!.removeFromSuperview()
+                    
+                } else {
+                    
+                    lastWordText.remove(at: lastWordText.startIndex)
+                    
+                }
             }
-            word.textColor = .red
+            
+            
+            lastWord!.text = lastWordText
         }
         
-        guard var lastWordText = lastWord!.text else {return}
-        
-        if  lastWordText.count == 1 {
-            words.remove(at: 0)
-            lastWord!.removeFromSuperview()
-        } else {
-            lastWordText.remove(at: lastWordText.startIndex)
-        }
-        
-        lastWord!.text = lastWordText
-
     }
     
     let buttonsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .white
         return view
     }()
     

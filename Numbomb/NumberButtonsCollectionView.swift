@@ -50,9 +50,9 @@ extension GameViewController : UICollectionViewDelegate , UICollectionViewDataSo
         
         switch indexPath.item {
         case 9:
-            print(0)
+            removeLetter(character: "0")
         default:
-            print(indexPath.item + 1)
+            removeLetter(character: "\(indexPath.item+1)")
         }
         
     }
