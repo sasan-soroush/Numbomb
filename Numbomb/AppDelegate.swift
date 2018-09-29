@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         
-        window?.rootViewController = UINavigationController(rootViewController: GameViewController())
+        window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
 
         return true
     }

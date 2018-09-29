@@ -23,7 +23,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
     var duration : Double = 10.0
     var rangeOfRandomNumber = 901
     var startNumberForRange = 100
-    
+    var score = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,6 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         setDuration()
         setNumberRange()
         update()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.isNavigationBarHidden = true
         
     }
     
@@ -85,15 +78,23 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
                 
             }
             
-            
         })
     }
     
     private func gameOver() {
+        saveHighScore()
         self.words.remove(at: 0)
         self.words.first?.removeFromSuperview()
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        self.navigationController?.pushViewController(YouLostViewController(), animated: false)
+        self.navigationController?.pushViewController(YouLostViewController(), animated: true)
+    }
+    
+    private func saveHighScore() {
+       
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(score, forKey: "highscore")
+        userDefaults.synchronize()
+        
     }
     
     private func setDuration () {
@@ -226,6 +227,8 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
     
     private func deleteionAnimation() {
         
+        score += 1
+        self.scoreLabel.text = "\(score)"
         let lastWord = words.first
         
         if words.count > 0 {
@@ -248,17 +251,30 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         
     }
     
+    let scoreLabel : LTMorphingLabel = {
+        let label = LTMorphingLabel()
+        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.adjustsFontSizeToFitWidth = true
+        label.morphingEffect = LTMorphingEffect.anvil
+        label.textAlignment = .center
+        return label
+    }()
+    
     private func setupView() {
         
         view.backgroundColor = .black
         
         view.addSubview(buttonsCollectionView)
+        view.addSubview(scoreLabel)
         
         buttonsCollectionView.delegate = self
         buttonsCollectionView.dataSource = self
         buttonsCollectionView.register(NumberButtonCollectionViewCell.self, forCellWithReuseIdentifier: "NumberButtonCollectionViewCell")
         
         buttonsCollectionView.frame = CGRect(x: 0 , y: view.frame.height/10*6, width: view.frame.width, height: view.frame.height/10*4)
+        
+        scoreLabel.frame = CGRect(x: 0, y: buttonsCollectionView.frame.minY - 60, width: view.frame.width, height: 80)
+        scoreLabel.text = "\(self.score)"
         
         
     }

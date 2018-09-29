@@ -22,7 +22,7 @@ extension String {
     }
 }
 
-extension UILabel {
+extension UILabel{
     
     func startBlink() {
         UIView.animate(withDuration: 1,
