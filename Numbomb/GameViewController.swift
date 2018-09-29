@@ -36,6 +36,30 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        killAllAnimations()
+        
+    }
+    
+    private func killAllAnimations() {
+        self.view.subviews.forEach({$0.layer.removeAllAnimations()})
+        self.view.layer.removeAllAnimations()
+        self.view.layoutIfNeeded()
+        timer?.invalidate()
+        updateTimer?.invalidate()
+        durationTimer?.invalidate()
+        numberRangeTime?.invalidate()
+    }
+    
     private func startTimer() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
@@ -47,6 +71,8 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         }
     }
     
+    
+    
     private func update() {
         updateTimer?.invalidate()
         updateTimer = Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true, block: { (_) in
@@ -55,14 +81,19 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
 
             if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY+40 {
 
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                self.words.remove(at: 0)
-                lastWord.removeFromSuperview()
+                self.gameOver()
                 
             }
             
             
         })
+    }
+    
+    private func gameOver() {
+        self.words.remove(at: 0)
+        self.words.first?.removeFromSuperview()
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        self.navigationController?.pushViewController(YouLostViewController(), animated: false)
     }
     
     private func setDuration () {
@@ -162,8 +193,12 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
             words.first?.textColor = .green
             
             guard var lastWordText = words.first?.text else {return}
+            guard let firstWord = words.first else {return}
+            guard let firstWordText = firstWord.text else {return}
+            guard let firstCharacte = firstWordText.first else {return}
             
-            if String((words.first?.text?.first)!) == character {
+            if String(firstCharacte) == character {
+                
                 if  lastWordText.count == 1 {
                     
                     lastWordText.remove(at: lastWordText.startIndex)
@@ -174,6 +209,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
                     lastWordText.remove(at: lastWordText.startIndex)
                     
                 }
+                
             }
             
             lastWord!.text = lastWordText
@@ -192,6 +228,10 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         
         let lastWord = words.first
         
+        if words.count > 0 {
+            self.words.remove(at: 0)
+        }
+        
         UIView.animate(withDuration: 0.5, animations: {
             
             lastWord!.alpha = 0
@@ -199,7 +239,6 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         }) { (_) in
             
             if self.words.count > 0 {
-                self.words.remove(at: 0)
                 lastWord!.removeFromSuperview()
             }
             

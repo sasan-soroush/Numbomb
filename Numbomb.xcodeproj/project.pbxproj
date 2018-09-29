@@ -15,6 +15,7 @@
 		E28D6A4B215D6BD600DA4BCC /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A4A215D6BD600DA4BCC /* Extentions.swift */; };
 		E28D6A4F215D766B00DA4BCC /* NumberButtonsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A4E215D766B00DA4BCC /* NumberButtonsCollectionView.swift */; };
 		E28D6A51215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A50215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift */; };
+		E28D6A98216005C200DA4BCC /* YouLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A97216005C200DA4BCC /* YouLostViewController.swift */; };
 		F4061F53188FE6ACE0E0C7DA /* Pods_Numbomb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778D4FBA268CB9593E966406 /* Pods_Numbomb.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		E28D6A4A215D6BD600DA4BCC /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		E28D6A4E215D766B00DA4BCC /* NumberButtonsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButtonsCollectionView.swift; sourceTree = "<group>"; };
 		E28D6A50215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		E28D6A97216005C200DA4BCC /* YouLostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouLostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				E28D6A33215D583B00DA4BCC /* AppDelegate.swift */,
 				E28D6A35215D583B00DA4BCC /* GameViewController.swift */,
+				E28D6A97216005C200DA4BCC /* YouLostViewController.swift */,
 				E28D6A4A215D6BD600DA4BCC /* Extentions.swift */,
 				E28D6A4E215D766B00DA4BCC /* NumberButtonsCollectionView.swift */,
 				E28D6A50215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift */,
@@ -210,6 +213,7 @@
 			files = (
 				E28D6A3C215D583B00DA4BCC /* Numbomb.xcdatamodeld in Sources */,
 				E28D6A4B215D6BD600DA4BCC /* Extentions.swift in Sources */,
+				E28D6A98216005C200DA4BCC /* YouLostViewController.swift in Sources */,
 				E28D6A4F215D766B00DA4BCC /* NumberButtonsCollectionView.swift in Sources */,
 				E28D6A36215D583B00DA4BCC /* GameViewController.swift in Sources */,
 				E28D6A51215D76C400DA4BCC /* NumberButtonCollectionViewCell.swift in Sources */,
