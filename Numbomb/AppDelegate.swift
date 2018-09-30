@@ -19,11 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
+        setStatusBarBackgroundColor()
         
         window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
 
         return true
+    }
+    
+    func setStatusBarBackgroundColor() {
+        
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        
+        statusBar.backgroundColor = UIColor.init(rgb: 0x14F208)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

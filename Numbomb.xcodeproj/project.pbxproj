@@ -83,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E28D6A33215D583B00DA4BCC /* AppDelegate.swift */,
+				E28D6A9B21600E2700DA4BCC /* MenuViewController.swift */,
 				E28D6A35215D583B00DA4BCC /* GameViewController.swift */,
 				E28D6A97216005C200DA4BCC /* YouLostViewController.swift */,
 				E28D6A4A215D6BD600DA4BCC /* Extentions.swift */,
@@ -93,7 +94,6 @@
 				E28D6A42215D583C00DA4BCC /* Info.plist */,
 				E28D6A3A215D583B00DA4BCC /* Numbomb.xcdatamodeld */,
 				E28D6A9921600DE200DA4BCC /* GhostTyperLibrary.swift */,
-				E28D6A9B21600E2700DA4BCC /* MenuViewController.swift */,
 			);
 			path = Numbomb;
 			sourceTree = "<group>";

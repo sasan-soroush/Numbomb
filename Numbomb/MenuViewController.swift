@@ -10,12 +10,14 @@ import UIKit
 
 class MenuViewController : UIViewController {
     
+    let guideText = "Hi \nRecently we've been attacked by a group of hackers they are trying to find the MAIN PASSWORD. \nWe couldn't stop them at all. \nSo we just hope that maybe your ability in preventing cyber attacks helps us. \nWe need you to stop them from testing their passwords in our system. \nLet's do this..."
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
-        guideLabel.startTypewritingAnimation {
-            self.makeButtonVisible()
+        guideLabelTyping.startTypewritingAnimation {
+            self.screenTapped()
         }
     }
     
@@ -27,11 +29,12 @@ class MenuViewController : UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        makeButtonVisible()
+        screenTapped()
     }
     
-    private func makeButtonVisible() {
-        
+    private func screenTapped() {
+        guideLabel.isHidden = false
+        guideLabelTyping.removeFromSuperview()
         self.startGameButton.isHidden = false
     }
     
@@ -39,14 +42,25 @@ class MenuViewController : UIViewController {
         self.navigationController?.pushViewController(GameViewController(), animated: false)
     }
     
-    let guideLabel : TypewriterLabel = {
+    lazy var guideLabelTyping : TypewriterLabel = {
         let label = TypewriterLabel()
-        label.text = " _ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fringilla eu ligula non tristique. Praesent finibus mattis purus ac suscipit. Donec laoreet ligula odio, sit amet porta felis scelerisque at."
+        label.text = guideText
         label.textColor = UIColor.init(rgb: 0x14F208)
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 25)
         label.lineBreakMode = NSLineBreakMode.byClipping
         label.typingTimeInterval = 0.1
+        return label
+    }()
+    
+    lazy var guideLabel : UILabel = {
+        let label = UILabel()
+        label.text = guideText
+        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 25)
+        label.lineBreakMode = NSLineBreakMode.byClipping
+        label.isHidden = true
         return label
     }()
     
@@ -66,11 +80,14 @@ class MenuViewController : UIViewController {
         view.backgroundColor = .black
         view.addSubview(guideLabel)
         view.addSubview(startGameButton)
+        view.addSubview(guideLabelTyping)
         
-        guideLabel.frame = CGRect(x: 30, y: 30, width: view.frame.width-60, height: view.frame.height/2)
         
+        
+        guideLabelTyping.frame = CGRect(x: 30, y: 50, width: view.frame.width-60, height: view.frame.height/2)
+        guideLabel.frame = guideLabelTyping.frame
+        guideLabelTyping.sizeToFit()
         guideLabel.sizeToFit()
-        
         startGameButton.frame = CGRect(x: 80, y: view.frame.height/4*3, width: view.frame.width - 160, height: view.frame.height/12)
         
     }
