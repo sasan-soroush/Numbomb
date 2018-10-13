@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2EB88B72171F257008939D5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB88B62171F257008939D5 /* Colors.swift */; };
 		E28D6A34215D583B00DA4BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A33215D583B00DA4BCC /* AppDelegate.swift */; };
 		E28D6A36215D583B00DA4BCC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A35215D583B00DA4BCC /* GameViewController.swift */; };
 		E28D6A3C215D583B00DA4BCC /* Numbomb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E28D6A3A215D583B00DA4BCC /* Numbomb.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 		593458831A62B37919EFFFB2 /* Pods-Numbomb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numbomb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numbomb/Pods-Numbomb.debug.xcconfig"; sourceTree = "<group>"; };
 		6739F0F7ED26C9FA2998D1AE /* Pods-Numbomb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numbomb.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numbomb/Pods-Numbomb.release.xcconfig"; sourceTree = "<group>"; };
 		778D4FBA268CB9593E966406 /* Pods_Numbomb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numbomb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2EB88B62171F257008939D5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E28D6A30215D583B00DA4BCC /* Numbomb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numbomb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28D6A33215D583B00DA4BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E28D6A35215D583B00DA4BCC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				E28D6A42215D583C00DA4BCC /* Info.plist */,
 				E28D6A3A215D583B00DA4BCC /* Numbomb.xcdatamodeld */,
 				E28D6A9921600DE200DA4BCC /* GhostTyperLibrary.swift */,
+				B2EB88B62171F257008939D5 /* Colors.swift */,
 			);
 			path = Numbomb;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28D6A9A21600DE200DA4BCC /* GhostTyperLibrary.swift in Sources */,
+				B2EB88B72171F257008939D5 /* Colors.swift in Sources */,
 				E28D6A3C215D583B00DA4BCC /* Numbomb.xcdatamodeld in Sources */,
 				E28D6A4B215D6BD600DA4BCC /* Extentions.swift in Sources */,
 				E28D6A98216005C200DA4BCC /* YouLostViewController.swift in Sources */,

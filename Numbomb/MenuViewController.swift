@@ -45,7 +45,7 @@ class MenuViewController : UIViewController {
     lazy var guideLabelTyping : TypewriterLabel = {
         let label = TypewriterLabel()
         label.text = guideText
-        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.textColor = colors.objects.rawValue
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 25)
         label.lineBreakMode = NSLineBreakMode.byClipping
@@ -56,7 +56,7 @@ class MenuViewController : UIViewController {
     lazy var guideLabel : UILabel = {
         let label = UILabel()
         label.text = guideText
-        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.textColor = colors.objects.rawValue
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 25)
         label.lineBreakMode = NSLineBreakMode.byClipping
@@ -67,8 +67,8 @@ class MenuViewController : UIViewController {
     let startGameButton : UIButton = {
         let button = UIButton()
         button.setTitle("Start", for: .normal)
-        button.setTitleColor( UIColor.init(rgb: 0x14F208), for: .normal)
-        button.layer.borderColor = UIColor.init(rgb: 0x14F208).cgColor
+        button.setTitleColor( colors.objects.rawValue, for: .normal)
+        button.layer.borderColor = colors.objects.rawValue.cgColor
         button.layer.borderWidth = 2.5
         button.layer.cornerRadius = 8
         button.isHidden = true
@@ -77,7 +77,7 @@ class MenuViewController : UIViewController {
     }()
     
     private func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = colors.background.rawValue
         view.addSubview(guideLabel)
         view.addSubview(startGameButton)
         view.addSubview(guideLabelTyping)

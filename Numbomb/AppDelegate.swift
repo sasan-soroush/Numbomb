@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
         
-        statusBar.backgroundColor = UIColor.init(rgb: 0x14F208)
+        statusBar.backgroundColor = colors.objects.rawValue
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

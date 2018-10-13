@@ -44,7 +44,7 @@ class YouLostViewController : UIViewController {
     let lostLabel : UILabel = {
         let label = UILabel()
         label.text = "Game Over"
-        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.textColor = colors.objects.rawValue
         label.font = UIFont.systemFont(ofSize: 90, weight: UIFont.Weight.bold)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
@@ -53,23 +53,25 @@ class YouLostViewController : UIViewController {
     
     let homeButton : UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "home"), for: UIControlState.normal)
+        button.setImage(#imageLiteral(resourceName: "home").withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState.normal)
         button.tag = 1
         button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
+        button.tintColor = colors.objects.rawValue
         return button
     }()
     
     let repeatButton : UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "repeat"), for: UIControlState.normal)
+        button.setImage(#imageLiteral(resourceName: "repeat").withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState.normal)
         button.tag = 2
         button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
+        button.tintColor = colors.objects.rawValue
         return button
     }()
     
     let scoreLabel : UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.textColor = colors.selected.rawValue
         label.font = UIFont.systemFont(ofSize: 70, weight: UIFont.Weight.bold)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
@@ -77,7 +79,7 @@ class YouLostViewController : UIViewController {
     }()
     
     private func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = colors.background.rawValue
         view.addSubview(lostLabel)
         view.addSubview(homeButton)
         view.addSubview(repeatButton)

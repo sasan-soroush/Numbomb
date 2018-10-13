@@ -71,12 +71,14 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         updateTimer = Timer.scheduledTimer(withTimeInterval: 1/30, repeats: true, block: { (_) in
             
             guard let lastWord = self.words.first else {return}
-
-            if (lastWord.layer.presentation()?.frame.maxY)! >= self.buttonsCollectionView.frame.minY+40 {
-
-                self.gameOver()
-                
+            if let pos = lastWord.layer.presentation()?.frame.maxY {
+                if pos >= self.buttonsCollectionView.frame.minY+40 {
+                    
+                    self.gameOver()
+                    
+                }
             }
+            
             
         })
     }
@@ -142,9 +144,9 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         let word : LTMorphingLabel = {
             let label = LTMorphingLabel()
             label.text = getRandomWord()
-            label.textColor = UIColor.init(rgb: 0x14F208)
+            label.textColor = colors.objects.rawValue
             label.textAlignment = .center
-            label.morphingEffect = LTMorphingEffect.fall
+            label.morphingEffect = LTMorphingEffect.evaporate
             label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.heavy)
             return label
         }()
@@ -191,7 +193,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
            
             chooseLastWord()
             
-            words.first?.textColor = .green
+            words.first?.textColor = colors.selected.rawValue
             
             guard var lastWordText = words.first?.text else {return}
             guard let firstWord = words.first else {return}
@@ -221,7 +223,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
     let buttonsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .black
+        view.backgroundColor = colors.background.rawValue
         return view
     }()
     
@@ -253,16 +255,16 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
     
     let scoreLabel : LTMorphingLabel = {
         let label = LTMorphingLabel()
-        label.textColor = UIColor.init(rgb: 0x14F208)
+        label.textColor = colors.objects.rawValue
         label.adjustsFontSizeToFitWidth = true
-        label.morphingEffect = LTMorphingEffect.anvil
+        label.morphingEffect = LTMorphingEffect.evaporate
         label.textAlignment = .center
         return label
     }()
     
     private func setupView() {
         
-        view.backgroundColor = .black
+        view.backgroundColor = colors.background.rawValue
         
         view.addSubview(buttonsCollectionView)
         view.addSubview(scoreLabel)
