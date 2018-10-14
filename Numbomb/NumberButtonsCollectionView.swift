@@ -17,7 +17,8 @@ extension GameViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NumberButtonCollectionViewCell", for: indexPath) as! NumberButtonCollectionViewCell
         
-        cell.number.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+        let margin : CGFloat = 3.5
+        cell.number.frame = CGRect(x: margin, y: margin, width: cell.frame.width - margin*2, height: cell.frame.height - margin*2)
         
         switch indexPath.item {
         case 9:
@@ -43,7 +44,7 @@ extension GameViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return  0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

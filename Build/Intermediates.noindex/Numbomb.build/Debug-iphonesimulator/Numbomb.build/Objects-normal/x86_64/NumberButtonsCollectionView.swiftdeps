@@ -7,7 +7,9 @@ provides-member:
 provides-dynamic-lookup:
 - "collectionView"
 depends-top-level:
+- !private "*"
 - !private "+"
+- !private "-"
 - !private "/"
 - "AssignmentPrecedence"
 - "CGFloat"

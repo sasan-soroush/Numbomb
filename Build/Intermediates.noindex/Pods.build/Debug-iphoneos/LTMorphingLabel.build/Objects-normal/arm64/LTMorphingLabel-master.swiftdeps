@@ -1,0 +1,17 @@
+version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
+options: "22e7619cd2e6c4dd2d546bc195439699"
+build_time: [1539497108, 118899000]
+inputs:
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTCharacterDiffResult.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTCharacterLimbo.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTEasing.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTEmitterView.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingEffect.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel+Anvil.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel+Burn.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel+Evaporate.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel+Fall.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel+Pixelate.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel+Sparkle.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTMorphingLabel.swift": [1539422905, 0]
+  "/Users/newuser/Desktop/numbomb/Pods/LTMorphingLabel/LTMorphingLabel/LTStringDiffResult.swift": [1539422905, 0]

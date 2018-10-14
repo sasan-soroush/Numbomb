@@ -1,0 +1,6 @@
+framework module Pods_Numbomb {
+  umbrella header "Pods-Numbomb-umbrella.h"
+
+  export *
+  module * { export * }
+}

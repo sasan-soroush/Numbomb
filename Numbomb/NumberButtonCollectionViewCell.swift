@@ -23,6 +23,7 @@ class NumberButtonCollectionViewCell : UICollectionViewCell {
     let number : UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.backgroundColor = colors.objects.rawValue
         label.textColor = colors.background.rawValue
         label.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.bold)
         return label
@@ -30,13 +31,11 @@ class NumberButtonCollectionViewCell : UICollectionViewCell {
     
     private func setupView() {
        
-        backgroundColor = colors.objects.rawValue
-        layer.borderColor = colors.background.rawValue.cgColor
-        layer.borderWidth = 5
-//        layer.cornerRadius = 8.5
         clipsToBounds = true
         
         addSubview(number)
+        
+        backgroundColor = colors.background.rawValue
         
     }
     

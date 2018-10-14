@@ -87,7 +87,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         saveHighScore()
         self.words.remove(at: 0)
         self.words.first?.removeFromSuperview()
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+//        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         self.navigationController?.pushViewController(YouLostViewController(), animated: true)
     }
     
@@ -164,7 +164,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
     private func getRandomWord() -> String{
         
         let randomNumber = arc4random_uniform(UInt32(rangeOfRandomNumber)) + UInt32(startNumberForRange)
-        print(randomNumber)
+       
         return String(randomNumber)
         
     }
@@ -277,7 +277,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         
         scoreLabel.frame = CGRect(x: 0, y: buttonsCollectionView.frame.minY - 60, width: view.frame.width, height: 80)
         scoreLabel.text = "\(self.score)"
-        
+        buttonsCollectionView.contentInsetAdjustmentBehavior = .never
         
     }
 

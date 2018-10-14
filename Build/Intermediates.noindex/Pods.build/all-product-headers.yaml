@@ -4,12 +4,12 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphonesimulator/LTMorphingLabel/LTMorphingLabel.framework/Headers",
+      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers",
       'contents': [
         {
           'type': 'file',
           'name': "LTMorphingLabel-Swift.h",
-          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphonesimulator/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel-Swift.h"
+          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel-Swift.h"
         },
         {
           'type': 'file',
@@ -25,18 +25,18 @@
     },
     {
       'type': 'directory',
-      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphonesimulator/LTMorphingLabel/LTMorphingLabel.framework/Modules",
+      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/LTMorphingLabel.build/module.modulemap"
+          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/LTMorphingLabel.build/module.modulemap"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphonesimulator/Pods_Numbomb.framework/Headers",
+      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/Pods_Numbomb.framework/Headers",
       'contents': [
         {
           'type': 'file',
@@ -46,18 +46,18 @@
         {
           'type': 'file',
           'name': "Pods_Numbomb-Swift.h",
-          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphonesimulator/Pods_Numbomb.framework/Headers/Pods_Numbomb-Swift.h"
+          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/Pods_Numbomb.framework/Headers/Pods_Numbomb-Swift.h"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphonesimulator/Pods_Numbomb.framework/Modules",
+      'name': "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/Pods_Numbomb.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Pods-Numbomb.build/module.modulemap"
+          'external-contents': "/Users/newuser/Desktop/numbomb/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/Pods-Numbomb.build/module.modulemap"
         }
       ]
     }
