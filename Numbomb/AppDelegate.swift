@@ -19,17 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        setStatusBarBackgroundColor()
-        
         window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
-
+        
+        UIApplication.shared.isStatusBarHidden = true
+        
         return true
     }
     
+    
+    
     func setStatusBarBackgroundColor() {
-        
+    
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
         statusBar.backgroundColor = colors.objects.rawValue
     }
 

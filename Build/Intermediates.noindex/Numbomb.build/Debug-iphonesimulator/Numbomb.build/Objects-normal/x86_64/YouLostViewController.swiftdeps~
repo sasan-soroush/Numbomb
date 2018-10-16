@@ -254,6 +254,7 @@ depends-member:
 - ["s9EquatableP", "rawValue"]
 - !private ["s9EquatableP", "repeatButton"]
 - !private ["s9EquatableP", "scoreLabel"]
+- ["s9EquatableP", "selected"]
 - ["s9EquatableP", "self"]
 - ["s9EquatableP", "setImage"]
 - !private ["s9EquatableP", "setupView"]
@@ -316,6 +317,7 @@ depends-member:
 - ["s8HashableP", "rawValue"]
 - !private ["s8HashableP", "repeatButton"]
 - !private ["s8HashableP", "scoreLabel"]
+- ["s8HashableP", "selected"]
 - ["s8HashableP", "self"]
 - ["s8HashableP", "setImage"]
 - !private ["s8HashableP", "setupView"]
@@ -1048,6 +1050,7 @@ depends-member:
 - !private ["7Numbomb6colorsO", "background"]
 - ["7Numbomb6colorsO", "objects"]
 - ["7Numbomb6colorsO", "rawValue"]
+- ["7Numbomb6colorsO", "selected"]
 depends-nominal:
 - "s23BidirectionalCollectionP"
 - !private "s19BinaryFloatingPointP"
@@ -1184,4 +1187,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
-interface-hash: "2d29b1f7117e69f7a16227bac0a00343"
+interface-hash: "5ee95150ebc4258610c9af9c178c66c0"

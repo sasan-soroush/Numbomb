@@ -34,6 +34,8 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         setNumberRange()
         update()
         
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -103,6 +105,7 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         durationTimer?.invalidate()
         durationTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true, block: { (_) in
         
+            self.changeBackground()
             print("Increasing the speed")
             let x = self.duration * 0.9
             let y = Double(round(x * 100)/100)
@@ -135,7 +138,28 @@ class GameViewController: UIViewController , LTMorphingLabelDelegate{
         
         let randomX = arc4random_uniform(UInt32(view.frame.width/4*2))
         
-        return CGRect(x: CGFloat(randomX), y: -50 , width: view.frame.width/2, height: 100)
+        return CGRect(x: CGFloat(randomX), y: -100 , width: view.frame.width/2, height: 100)
+        
+    }
+    
+    private func changeBackground() {
+        var index = 0
+        let colors : [UIColor] = [UIColor.red , UIColor.blue , UIColor.green]
+        
+        let animation = UIViewPropertyAnimator(duration: 1, curve: UIViewAnimationCurve.easeInOut) {
+            self.view.backgroundColor = colors[index]
+            
+            if index == colors.count-1 {
+                index = 0
+            } else {
+                index += 1
+            }
+            
+        }
+        
+        animation.startAnimation()
+        
+        
         
     }
     

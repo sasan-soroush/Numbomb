@@ -239,6 +239,7 @@ SWIFT_CLASS("_TtC7Numbomb18MenuViewController")
 SWIFT_CLASS("_TtC7Numbomb30NumberButtonCollectionViewCell")
 @interface NumberButtonCollectionViewCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 

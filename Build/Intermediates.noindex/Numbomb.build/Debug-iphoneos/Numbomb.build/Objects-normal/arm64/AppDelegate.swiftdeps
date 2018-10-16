@@ -97,6 +97,7 @@ depends-member:
 - !private ["s7CVarArgP", "fatalError"]
 - !private ["s7CVarArgP", "hasChanges"]
 - !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isStatusBarHidden"]
 - !private ["s7CVarArgP", "loadPersistentStores"]
 - !private ["s7CVarArgP", "main"]
 - !private ["s7CVarArgP", "makeKeyAndVisible"]
@@ -104,7 +105,6 @@ depends-member:
 - !private ["s7CVarArgP", "rootViewController"]
 - !private ["s7CVarArgP", "save"]
 - !private ["s7CVarArgP", "saveContext"]
-- !private ["s7CVarArgP", "setStatusBarBackgroundColor"]
 - !private ["s7CVarArgP", "shared"]
 - !private ["s7CVarArgP", "userInfo"]
 - !private ["s7CVarArgP", "value"]
@@ -137,6 +137,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "fatalError"]
 - !private ["s28CustomDebugStringConvertibleP", "hasChanges"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isStatusBarHidden"]
 - !private ["s28CustomDebugStringConvertibleP", "loadPersistentStores"]
 - !private ["s28CustomDebugStringConvertibleP", "main"]
 - !private ["s28CustomDebugStringConvertibleP", "makeKeyAndVisible"]
@@ -144,7 +145,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "rootViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "save"]
 - !private ["s28CustomDebugStringConvertibleP", "saveContext"]
-- !private ["s28CustomDebugStringConvertibleP", "setStatusBarBackgroundColor"]
 - !private ["s28CustomDebugStringConvertibleP", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "userInfo"]
 - !private ["s28CustomDebugStringConvertibleP", "value"]
@@ -180,6 +180,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "fatalError"]
 - !private ["s23CustomStringConvertibleP", "hasChanges"]
 - !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isStatusBarHidden"]
 - !private ["s23CustomStringConvertibleP", "loadPersistentStores"]
 - !private ["s23CustomStringConvertibleP", "main"]
 - !private ["s23CustomStringConvertibleP", "makeKeyAndVisible"]
@@ -187,7 +188,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "rootViewController"]
 - !private ["s23CustomStringConvertibleP", "save"]
 - !private ["s23CustomStringConvertibleP", "saveContext"]
-- !private ["s23CustomStringConvertibleP", "setStatusBarBackgroundColor"]
 - !private ["s23CustomStringConvertibleP", "shared"]
 - !private ["s23CustomStringConvertibleP", "userInfo"]
 - !private ["s23CustomStringConvertibleP", "value"]
@@ -223,6 +223,7 @@ depends-member:
 - !private ["s9EquatableP", "fatalError"]
 - !private ["s9EquatableP", "hasChanges"]
 - !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "isStatusBarHidden"]
 - !private ["s9EquatableP", "loadPersistentStores"]
 - !private ["s9EquatableP", "main"]
 - !private ["s9EquatableP", "makeKeyAndVisible"]
@@ -232,7 +233,6 @@ depends-member:
 - !private ["s9EquatableP", "rootViewController"]
 - !private ["s9EquatableP", "save"]
 - !private ["s9EquatableP", "saveContext"]
-- !private ["s9EquatableP", "setStatusBarBackgroundColor"]
 - !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "userInfo"]
 - !private ["s9EquatableP", "value"]
@@ -269,6 +269,7 @@ depends-member:
 - !private ["s8HashableP", "fatalError"]
 - !private ["s8HashableP", "hasChanges"]
 - !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "isStatusBarHidden"]
 - !private ["s8HashableP", "loadPersistentStores"]
 - !private ["s8HashableP", "main"]
 - !private ["s8HashableP", "makeKeyAndVisible"]
@@ -278,7 +279,6 @@ depends-member:
 - !private ["s8HashableP", "rootViewController"]
 - !private ["s8HashableP", "save"]
 - !private ["s8HashableP", "saveContext"]
-- !private ["s8HashableP", "setStatusBarBackgroundColor"]
 - !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "userInfo"]
 - !private ["s8HashableP", "value"]
@@ -330,6 +330,7 @@ depends-member:
 - !private ["So8NSObjectC", "fatalError"]
 - !private ["So8NSObjectC", "hasChanges"]
 - ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "isStatusBarHidden"]
 - !private ["So8NSObjectC", "loadPersistentStores"]
 - !private ["So8NSObjectC", "main"]
 - !private ["So8NSObjectC", "makeKeyAndVisible"]
@@ -369,6 +370,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "fatalError"]
 - !private ["So16NSObjectProtocolP", "hasChanges"]
 - !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "isStatusBarHidden"]
 - !private ["So16NSObjectProtocolP", "loadPersistentStores"]
 - !private ["So16NSObjectProtocolP", "main"]
 - !private ["So16NSObjectProtocolP", "makeKeyAndVisible"]
@@ -376,7 +378,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "rootViewController"]
 - !private ["So16NSObjectProtocolP", "save"]
 - !private ["So16NSObjectProtocolP", "saveContext"]
-- !private ["So16NSObjectProtocolP", "setStatusBarBackgroundColor"]
 - !private ["So16NSObjectProtocolP", "shared"]
 - !private ["So16NSObjectProtocolP", "userInfo"]
 - !private ["So16NSObjectProtocolP", "value"]
@@ -405,6 +406,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "makeKeyAndVisible"]
 - !private ["So21UIAppearanceContainerP", "rootViewController"]
+- !private ["So13UIApplicationC", "isStatusBarHidden"]
 - !private ["So13UIApplicationC", "shared"]
 - !private ["So13UIApplicationC", "value"]
 - !private ["So21UIApplicationDelegateP", "MenuViewController"]
@@ -430,7 +432,6 @@ depends-member:
 - !private ["So21UIApplicationDelegateP", "fatalError"]
 - !private ["So21UIApplicationDelegateP", "persistentContainer"]
 - !private ["So21UIApplicationDelegateP", "saveContext"]
-- !private ["So21UIApplicationDelegateP", "setStatusBarBackgroundColor"]
 - ["So21UIApplicationDelegateP", "window"]
 - !private ["So18UIContentContainerP", "init"]
 - !private ["So17UICoordinateSpaceP", "backgroundColor"]
@@ -473,11 +474,11 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "colors"]
 - !private ["So30UIPasteConfigurationSupportingP", "fatalError"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "isStatusBarHidden"]
 - !private ["So30UIPasteConfigurationSupportingP", "makeKeyAndVisible"]
 - !private ["So30UIPasteConfigurationSupportingP", "persistentContainer"]
 - !private ["So30UIPasteConfigurationSupportingP", "rootViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "saveContext"]
-- !private ["So30UIPasteConfigurationSupportingP", "setStatusBarBackgroundColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "shared"]
 - !private ["So30UIPasteConfigurationSupportingP", "value"]
 - ["So30UIPasteConfigurationSupportingP", "window"]
@@ -508,6 +509,7 @@ depends-member:
 - !private ["So11UIResponderC", "colors"]
 - !private ["So11UIResponderC", "fatalError"]
 - ["So11UIResponderC", "init"]
+- !private ["So11UIResponderC", "isStatusBarHidden"]
 - !private ["So11UIResponderC", "makeKeyAndVisible"]
 - ["So11UIResponderC", "persistentContainer"]
 - ["So11UIResponderC", "persistentContainer.storage"]
@@ -540,11 +542,11 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "colors"]
 - !private ["So30UIResponderStandardEditActionsP", "fatalError"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "isStatusBarHidden"]
 - !private ["So30UIResponderStandardEditActionsP", "makeKeyAndVisible"]
 - !private ["So30UIResponderStandardEditActionsP", "persistentContainer"]
 - !private ["So30UIResponderStandardEditActionsP", "rootViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "saveContext"]
-- !private ["So30UIResponderStandardEditActionsP", "setStatusBarBackgroundColor"]
 - !private ["So30UIResponderStandardEditActionsP", "shared"]
 - !private ["So30UIResponderStandardEditActionsP", "value"]
 - ["So30UIResponderStandardEditActionsP", "window"]
@@ -600,6 +602,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fatalError"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "hasChanges"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isStatusBarHidden"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadPersistentStores"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "main"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "makeKeyAndVisible"]
@@ -607,7 +610,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "rootViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "save"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "saveContext"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "setStatusBarBackgroundColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userInfo"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "value"]
@@ -693,7 +695,7 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
-- "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules/LTMorphingLabel.swiftmodule/arm64.swiftmodule"
+- "/Users/newuser/Desktop/Development/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules/LTMorphingLabel.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
@@ -708,10 +710,10 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel-umbrella.h"
-- "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel.h"
-- "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel-Swift.h"
-- "/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules/module.modulemap"
+- "/Users/newuser/Desktop/Development/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel-umbrella.h"
+- "/Users/newuser/Desktop/Development/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel.h"
+- "/Users/newuser/Desktop/Development/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Headers/LTMorphingLabel-Swift.h"
+- "/Users/newuser/Desktop/Development/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"

@@ -3,11 +3,11 @@
   'case-sensitive': 'false',
   'roots': [{
     'type': 'directory',
-    'name': '/Users/newuser/Desktop/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules'
+    'name': '/Users/newuser/Desktop/Development/numbomb/Build/Products/Debug-iphoneos/LTMorphingLabel/LTMorphingLabel.framework/Modules'
     'contents': [{
       'type': 'file',
       'name': 'module.modulemap',
-      'external-contents': '/Users/newuser/Desktop/numbomb/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/LTMorphingLabel.build/unextended-module.modulemap',
+      'external-contents': '/Users/newuser/Desktop/Development/numbomb/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/LTMorphingLabel.build/unextended-module.modulemap',
     }]
   }]
 }
