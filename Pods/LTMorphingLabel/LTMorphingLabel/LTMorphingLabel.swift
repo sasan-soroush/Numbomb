@@ -105,6 +105,8 @@ typealias LTMorphingSkipFramesClosure =
 
     fileprivate var displayLink: CADisplayLink?
     
+    private var tempRenderMorphingEnabled = true
+    
     #if TARGET_INTERFACE_BUILDER
     let presentingInIB = true
     #else
@@ -136,6 +138,7 @@ typealias LTMorphingSkipFramesClosure =
             currentFrame = 0
             totalFrames = 0
             
+            tempRenderMorphingEnabled = morphingEnabled
             setNeedsLayout()
             
             if !morphingEnabled {
@@ -160,16 +163,28 @@ typealias LTMorphingSkipFramesClosure =
     open func start() {
         guard displayLink == nil else { return }
         displayLink = CADisplayLink(target: self, selector: #selector(displayFrameTick))
-        displayLink?.add(to: .current, forMode: .commonModes)
+        displayLink?.add(to: .current, forMode: RunLoop.Mode.common)
     }
 
+    open func pause() {
+        displayLink?.isPaused = true
+    }
+    
+    open func unpause() {
+        displayLink?.isPaused = false
+    }
+    
+    open func finish() {
+        displayLink?.isPaused = false
+    }
+    
     open func stop() {
-        displayLink?.remove(from: .current, forMode: .commonModes)
+        displayLink?.remove(from: .current, forMode: RunLoop.Mode.common)
         displayLink?.invalidate()
         displayLink = nil
     }
     
-    open var textAttributes: [NSAttributedStringKey: Any]? {
+    open var textAttributes: [NSAttributedString.Key: Any]? {
         didSet {
             setNeedsLayout()
         }
@@ -215,7 +230,7 @@ typealias LTMorphingSkipFramesClosure =
 // MARK: - Animation extension
 extension LTMorphingLabel {
 
-    @objc func displayFrameTick() {
+    public func updateProgress(progress: Float) {
         guard let displayLink = displayLink else { return }
         if displayLink.duration > 0.0 && totalFrames == 0 {
             var frameRate = Float(0)
@@ -233,16 +248,16 @@ extension LTMorphingLabel {
                 frameRate = Float(displayLink.duration) / Float(displayLink.frameInterval)
             }
             totalFrames = Int(ceil(morphingDuration / frameRate))
-
+            
             let totalDelay = Float((text!).count) * morphingCharacterDelay
             totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
-
-        currentFrame += 1
-
-        if previousText != text && currentFrame < totalFrames + totalDelayFrames + 5 {
-            morphingProgress += 1.0 / Float(totalFrames)
-
+        
+        currentFrame = Int(ceil(progress * Float(totalFrames)))
+        
+        if previousText != text && currentFrame < totalFrames + totalDelayFrames + 10 {
+            morphingProgress = progress
+            
             let closureKey = "\(morphingEffect.description)\(LTMorphingPhases.skipFrames)"
             if let closure = skipFramesClosures[closureKey] {
                 skipFramesCount += 1
@@ -253,14 +268,23 @@ extension LTMorphingLabel {
             } else {
                 setNeedsDisplay()
             }
-
+            
             if let onProgress = delegate?.morphingOnProgress {
                 onProgress(self, morphingProgress)
             }
         } else {
             stop()
-
+            
             delegate?.morphingDidComplete?(self)
+        }
+    }
+    
+    @objc func displayFrameTick() {
+        if totalFrames == 0 {
+            updateProgress(progress: 0)
+        } else {
+            morphingProgress += 1.0 / Float(totalFrames)
+            updateProgress(progress: morphingProgress)
         }
     }
     
@@ -489,7 +513,7 @@ extension LTMorphingLabel {
     }
     
     override open func drawText(in rect: CGRect) {
-        if !morphingEnabled || limboOfCharacters().count == 0 {
+        if !tempRenderMorphingEnabled || limboOfCharacters().count == 0 {
             super.drawText(in: rect)
             return
         }
@@ -507,13 +531,11 @@ extension LTMorphingLabel {
                 }(charLimbo)
 
             if !willAvoidDefaultDrawing {
-                var attrs: [NSAttributedStringKey: Any] = [
+                var attrs: [NSAttributedString.Key: Any] = [
                     .foregroundColor: textColor.withAlphaComponent(charLimbo.alpha)
                 ]
 
-                if let font = UIFont(name: font.fontName, size: charLimbo.size) {
-                    attrs[.font] = font
-                }
+                attrs[.font] = UIFont(descriptor: font.fontDescriptor, size: charLimbo.size)
                 
                 for (key, value) in textAttributes ?? [:] {
                     attrs[key] = value

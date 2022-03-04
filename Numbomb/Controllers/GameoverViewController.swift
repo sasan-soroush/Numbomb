@@ -53,7 +53,7 @@ class GameoverViewController : BaseViewController {
     
     let homeButton : UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "home").withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState.normal)
+        button.setImage(#imageLiteral(resourceName: "home").withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: UIControl.State.normal)
         button.tag = 1
         button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
         button.tintColor = Constants.Colors.objects
@@ -62,7 +62,7 @@ class GameoverViewController : BaseViewController {
     
     let repeatButton : UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "repeat").withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState.normal)
+        button.setImage(#imageLiteral(resourceName: "repeat").withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: UIControl.State.normal)
         button.tag = 2
         button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
         button.tintColor = Constants.Colors.objects

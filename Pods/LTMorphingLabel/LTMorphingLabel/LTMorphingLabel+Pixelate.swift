@@ -88,12 +88,15 @@ extension LTMorphingLabel {
                 height: charLimbo.rect.size.height
             )
             String(charLimbo.char).draw(in: rect, withAttributes: [
-                .font: self.font,
+                .font: self.font as Any,
                 .foregroundColor: self.textColor.withAlphaComponent(fadeOutAlpha)
             ])
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            guard let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            else {
+                return UIImage()
+            }
             UIGraphicsEndImageContext()
-            return newImage!
+            return newImage
     }
     
 }

@@ -16,7 +16,7 @@ class NumberButtonCollectionViewCell : UICollectionViewCell {
     
     override var isHighlighted: Bool {
         willSet {
-            let animation = UIViewPropertyAnimator(duration: 0.2, curve: UIViewAnimationCurve.easeInOut) {
+            let animation = UIViewPropertyAnimator(duration: 0.2, curve: UIView.AnimationCurve.easeInOut) {
                 self.backgroundColor = Constants.Colors.background
                 self.number.transform = CGAffineTransform(scaleX: 1, y: 1)
             }

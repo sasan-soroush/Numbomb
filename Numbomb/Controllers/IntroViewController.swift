@@ -73,7 +73,7 @@ class IntroViewController : BaseViewController {
         button.layer.borderWidth = 2.5
         button.layer.cornerRadius = 8
         button.isHidden = true
-        button.addTarget(self, action: #selector(startTapped), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(startTapped), for: UIControl.Event.touchUpInside)
         return button
     }()
     

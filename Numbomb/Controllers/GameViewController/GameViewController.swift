@@ -146,7 +146,7 @@ class GameViewController: BaseViewController , LTMorphingLabelDelegate{
         var index = 0
         let colors : [UIColor] = [UIColor.red , UIColor.blue , UIColor.green]
         
-        let animation = UIViewPropertyAnimator(duration: 1, curve: UIViewAnimationCurve.easeInOut) {
+        let animation = UIViewPropertyAnimator(duration: 1, curve: UIView.AnimationCurve.easeInOut) {
             self.view.backgroundColor = colors[index]
             
             if index == colors.count-1 {
@@ -177,7 +177,7 @@ class GameViewController: BaseViewController , LTMorphingLabelDelegate{
         
         view.addSubview(word)
         word.frame = generateRandomFrame(word)
-        self.view.sendSubview(toBack: word)
+        self.view.sendSubviewToBack(word)
         
         words.append(word)
         
@@ -195,7 +195,7 @@ class GameViewController: BaseViewController , LTMorphingLabelDelegate{
     
     private func animate(word : UILabel , duration : Double) {
         
-        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
              word.frame = CGRect(x: word.frame.minX, y: self.view.frame.height, width: word.frame.width, height: word.frame.height)
         }, completion: nil)
 

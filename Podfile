@@ -6,5 +6,5 @@ target 'Numbomb' do
   use_frameworks!
 
   # Pods for Numbomb
-pod 'LTMorphingLabel'
+  pod 'LTMorphingLabel', '~> 0.9'
 end

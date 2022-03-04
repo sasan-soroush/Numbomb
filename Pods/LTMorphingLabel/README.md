@@ -1,13 +1,14 @@
 # LTMorphingLabel
 
 [![Travis](https://img.shields.io/travis/lexrus/LTMorphingLabel.svg)](https://travis-ci.org/lexrus/LTMorphingLabel)
-![Language](https://img.shields.io/badge/language-Swift%204-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%205-orange.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/LTMorphingLabel)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
 ![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)
 
 A morphing UILabel subclass written in Swift.
-The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://youtu.be/w87fOAG8fjk?t=3451) in WWDC 2014. New morphing effects are available as Swift extensions.
+The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://youtu.be/w87fOAG8fjk?t=3451) of WWDC 2014. New morphing effects are available as Swift extensions.
 
 ## enum LTMorphingEffect: Int, Printable
 
@@ -34,12 +35,39 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 #### [.Anvil](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BAnvil.swift)
 <img src="https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
 
+## SwiftUI
+
+![LTMorphingLabelSwiftUI](https://user-images.githubusercontent.com/219689/81505494-2c528c80-9322-11ea-9bdb-b208dd38a5e6.png)
+
+```swift
+public var body: some View {
+    VStack {
+        MorphingText(
+            "Awesome Morphing Text",
+            effect: .evaporate,
+            font: UIFont.systemFont(ofSize: 20),
+            textColor: .black,
+            textAlignment: .center
+        ).frame(maxWidth: 200, maxHeight: 100)
+        ...
+```
+
 ## Requirements
 
-1. Xcode 9.3
-2. iOS 8.0+
+1. Xcode 12
+2. iOS 9.0+
 
 ## Installation
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+1. File > Swift Packages > Add Package Dependency
+2. Copy & paste `https://github.com/lexrus/LTMorphingLabel` then follow the instruction
+
+### [XCFramework](https://developer.apple.com/videos/play/wwdc2019/416/)
+
+XCFramework is a new option introduced in Xcode 11.
+You can manually download the pre-compiled LTMorphingLabel.xcframework.zip from the [Releases](https://github.com/lexrus/LTMorphingLabel/releases) page. Then drag and drop it into your project.
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
@@ -52,10 +80,32 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 2. Add this line to your Podfile: `pod 'LTMorphingLabel'`
 3. Install the pod: `pod install`
 
+### [Accio](https://github.com/JamitLabs/Accio)
+
+1. Add the following to your Package.swift:
+
+  ```swift
+  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.9.2")),
+  ```
+
+2. Next, add `LTMorphingLabel` to your App targets dependencies like so:
+
+  ```swift
+  .target(
+      name: "App",
+      dependencies: [
+          "LTMorphingLabel",
+      ]
+  ),
+  ```
+
+3. Then run `accio update`.
+
 ## Usage
 
 1. Change the class of a label from UILabel to LTMorphingLabel;
 2. Programmatically set a new String to its text property.
+3. To use interactively, call `.pause()` after changing `.text` property, and use `updateProgress(progress: Float)`to update the progress interactively.
 
 ## Unit tests
 
@@ -76,15 +126,8 @@ And finally, [an Android port](https://github.com/hanks-zyh/HTextView).
 ## Third Party Bindings
 
 ### React Native
+
 You may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-morphing-text)
-
-## Donation
-
-Buy me a coffee? Here is my wallet:
-
-BTC: `3MnMu3Q1UK63dRbwjhwqWSBVLWxy8SPk6b`
-
-ETH: `0x2884F4bE2cBA05395EE0EF997a44aA9B90fD2E2A`
 
 ## License
 

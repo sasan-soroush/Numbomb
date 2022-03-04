@@ -50,8 +50,8 @@ extension LTMorphingLabel {
                 height: maskedHeight
             )
             String(charLimbo.char).draw(in: rect, withAttributes: [
-                .font: self.font,
-                .foregroundColor: self.textColor
+                .font: self.font as Any,
+                .foregroundColor: self.textColor as Any
             ])
             guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
                 return (UIImage(), CGRect.zero)
@@ -121,7 +121,7 @@ extension LTMorphingLabel {
                             width: rect.size.width,
                             height: 1
                         )
-                        layer.renderMode = kCAEmitterLayerOutline
+                        layer.renderMode = .unordered
                         cell.emissionLongitude = CGFloat(Double.pi / 2.0)
                         cell.scale = self.font.pointSize / 300.0
                         cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
