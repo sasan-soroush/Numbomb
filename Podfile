@@ -7,5 +7,4 @@ target 'Numbomb' do
 
   # Pods for Numbomb
 pod 'LTMorphingLabel'
-pod 'SnapKit'
 end
