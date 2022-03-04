@@ -1,16 +1,21 @@
 PODS:
   - LTMorphingLabel (0.5.7)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - LTMorphingLabel
+  - SnapKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - LTMorphingLabel
+  trunk:
+    - SnapKit
 
 SPEC CHECKSUMS:
   LTMorphingLabel: 9d1c38bd602fe505f264d3e9fdb780995142f275
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: d369b0fd39f349c415fefa08a9eaf2b7ad59fbe2
+PODFILE CHECKSUM: f76387673260f395b9d9061a3e8366a4181af2d5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.11.2

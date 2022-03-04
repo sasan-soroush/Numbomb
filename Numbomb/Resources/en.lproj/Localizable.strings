@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Numbomb
+
+  Created by Sasan Soroush on 3/4/22.
+  Copyright © 2022 Sasan Soroush. All rights reserved.
+*/
+
+"game_introduction" = "Hi \nRecently we've been attacked by a group of hackers they are trying to find the MAIN PASSWORD. \nWe couldn't stop them at all. \nSo we just hope that maybe your ability in preventing cyber attacks helps us. \nWe need you to stop them from testing their passwords in our system. \nLet's do this...";
